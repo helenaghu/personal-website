@@ -117,35 +117,23 @@ function NavLink({
   );
 }
 
-export default function Sidebar() {
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when mobile menu open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
-
-  const SidebarContent = ({ isMobile = false }: { isMobile?: boolean }) => (
+function SidebarContent({
+  pathname,
+  onClose,
+  isMobile = false,
+}: {
+  pathname: string;
+  onClose: () => void;
+  isMobile?: boolean;
+}) {
+  return (
     <div className="flex flex-col h-full">
       {/* Identity */}
       <div className={isMobile ? "mb-8" : "mb-7"}>
         <Link
           href="/about"
           className="block group"
-          onClick={() => setMobileOpen(false)}
+          onClick={onClose}
         >
           <h1 className="font-serif text-xl text-neutral-900 dark:text-neutral-50 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors duration-150">
             Your Name
@@ -189,7 +177,7 @@ export default function Sidebar() {
             href={link.href}
             label={link.label}
             active={pathname === link.href || pathname.startsWith(link.href + "/")}
-            onClick={() => setMobileOpen(false)}
+            onClick={onClose}
           />
         ))}
       </nav>
@@ -203,12 +191,34 @@ export default function Sidebar() {
       </div>
     </div>
   );
+}
+
+export default function Sidebar() {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
     <>
       {/* ── DESKTOP SIDEBAR ── */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 xl:w-72 flex-col px-8 xl:px-10 py-10 border-r border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 z-30">
-        <SidebarContent />
+        <SidebarContent pathname={pathname} onClose={() => setMobileOpen(false)} />
       </aside>
 
       {/* ── MOBILE HEADER ── */}
@@ -272,7 +282,7 @@ export default function Sidebar() {
           />
           {/* Drawer */}
           <div className="lg:hidden fixed top-14 left-0 bottom-0 w-72 z-40 bg-neutral-50 dark:bg-neutral-900 border-r border-neutral-100 dark:border-neutral-800 px-7 py-8 overflow-y-auto animate-fade-in">
-            <SidebarContent isMobile />
+            <SidebarContent pathname={pathname} onClose={() => setMobileOpen(false)} isMobile />
           </div>
         </>
       )}
