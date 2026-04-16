@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
@@ -20,11 +20,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased">
         <ThemeProvider>
-          {/* Full-height layout: sidebar fixed left, content scrolls right */}
           <div className="min-h-screen">
-            <Sidebar />
-            {/* Offset for fixed sidebar on desktop; offset for fixed header on mobile */}
-            <div className="lg:ml-64 xl:ml-72 pt-14 lg:pt-0">
+            <Navbar />
+            {/* pt-14 offsets the fixed navbar height */}
+            <div className="pt-14">
               <main className="max-w-2xl mx-auto px-6 py-12 lg:py-16 xl:py-20 lg:px-10">
                 {children}
               </main>

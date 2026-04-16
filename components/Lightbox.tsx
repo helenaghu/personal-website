@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { Photo } from "@/data/photos";
-import Image from "next/image";
 
 type LightboxProps = {
   photo: Photo;
@@ -109,25 +108,23 @@ export default function Lightbox({
 
       {/* Image */}
       <div
-        className="relative z-10 max-w-3xl max-h-[80vh] w-full mx-8 animate-scale-in"
+        className="relative z-10 flex flex-col items-center mx-8"
         onClick={(e) => e.stopPropagation()}
       >
         {photo.src ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={photo.src}
             alt={photo.alt}
-            width={900}
-            height={600}
-            className="w-full h-full object-contain rounded-sm"
+            style={{ maxHeight: "80vh", maxWidth: "90vw", width: "auto", height: "auto" }}
           />
         ) : (
           <div
-            className={`${photo.placeholderColor} w-full aspect-square rounded-sm flex items-center justify-center`}
+            className={`${photo.placeholderColor} w-96 aspect-square rounded-sm flex items-center justify-center`}
           >
             <span className="text-neutral-600/60 text-sm">{photo.alt}</span>
           </div>
         )}
-        <p className="text-white/50 text-xs mt-3 text-center">{photo.alt}</p>
       </div>
     </div>
   );

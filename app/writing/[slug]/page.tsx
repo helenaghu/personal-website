@@ -70,7 +70,20 @@ export default async function ArticlePage({ params }: Props) {
         >
           {formatDate(article.date)}
         </time>
-        <h1 className="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 leading-tight">
+        {article.slug === "23-lessons-at-23" && (
+          <figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/bday.jpg"
+              alt="Birthday"
+              className="w-full h-auto"
+            />
+            <figcaption className="text-xs text-neutral-400 dark:text-neutral-500 mt-2">
+              my 2nd birthday, i think i only care about eating
+            </figcaption>
+          </figure>
+        )}
+        <h1 className="text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 leading-tight">
           {article.title}
         </h1>
         <p className="text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
@@ -81,14 +94,36 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* Body */}
       <div className="space-y-5">
-        {paragraphs.map((para, i) => (
-          <p
-            key={i}
-            className="text-base text-neutral-700 dark:text-neutral-300 leading-loose"
-          >
-            {para}
-          </p>
-        ))}
+        {paragraphs.map((para, i) => {
+          // Detect numbered list items like "1. First sentence. Rest of text."
+          const numberedMatch = para.match(/^(\d+\.\s)(.+)$/s);
+          if (numberedMatch) {
+            const prefix = numberedMatch[1]; // "1. "
+            const body = numberedMatch[2];   // rest of text
+            // Find end of first sentence (period followed by space + more text, or end)
+            const firstSentenceMatch = body.match(/^(.+?[.!?])\s+(.+)$/s);
+            if (firstSentenceMatch) {
+              return (
+                <p key={i} className="text-base text-neutral-700 dark:text-neutral-300 leading-loose">
+                  <strong>{prefix}{firstSentenceMatch[1]}</strong>
+                  <br />
+                  {firstSentenceMatch[2]}
+                </p>
+              );
+            }
+            // Only one sentence
+            return (
+              <p key={i} className="text-base text-neutral-700 dark:text-neutral-300 leading-loose">
+                <strong>{para}</strong>
+              </p>
+            );
+          }
+          return (
+            <p key={i} className="text-base text-neutral-700 dark:text-neutral-300 leading-loose">
+              {para}
+            </p>
+          );
+        })}
       </div>
 
       {/* Footer */}

@@ -8,6 +8,8 @@ html {
 
 body {
   overflow-y: scroll;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 /* Prevent layout shift from scrollbar */
