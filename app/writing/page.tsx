@@ -3,7 +3,7 @@ import { articles } from "@/data/articles";
 import ArticleListItem from "@/components/ArticleListItem";
 
 export const metadata: Metadata = {
-  title: "Writing",
+  title: "NOTEPAD",
 };
 
 export default function WritingPage() {

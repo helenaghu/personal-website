@@ -5,8 +5,8 @@ import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Your Name",
-    template: "%s — Your Name",
+    default: "HELENA",
+    template: "%s — HELENA",
   },
   description: "Personal website — writing, reading, and photography.",
 };

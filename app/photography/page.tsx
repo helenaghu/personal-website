@@ -3,7 +3,7 @@ import { photos } from "@/data/photos";
 import PhotoGrid from "@/components/PhotoGrid";
 
 export const metadata: Metadata = {
-  title: "Photography",
+  title: "ALBUM",
 };
 
 export default function PhotographyPage() {
