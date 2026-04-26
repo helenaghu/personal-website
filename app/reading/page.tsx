@@ -18,6 +18,7 @@ const currentlyReading: Book[] = [
 ];
 
 const haveRead: Book[] = [
+  { title: "Wintergirls",                author: "Laurie Halse Anderson", rating: 4, dateRead: "Apr 2026", isbn: "9780142415573" },
   { title: "Thinking in Bets",          author: "Annie Duke",          rating: 4, dateRead: null,       isbn: "9780735216372" },
   { title: "The Diary of a Young Girl", author: "Anne Frank",          rating: 5, dateRead: null,       isbn: "9780553577129" }, // Bantam revised ed.
   { title: "The Iliad",                 author: "Homer",               rating: 2, dateRead: null,       isbn: "9781324001805" },
