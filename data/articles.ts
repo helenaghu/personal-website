@@ -8,6 +8,38 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "why-mom-deserves-a-diamond",
+    title: "Why Mom Deserves a Diamond",
+    description: "A note of appreciation on Mother's Day.",
+    date: "2026-05-10",
+    content: `Mother's Day is a special holiday for me. The mothers in my life are nothing but exemplary people and a demonstration of what it means to show unconditional love, both unto their children but also into the world around us. Mothers, to me, are the pearl of an oyster, the steady hand that guides a kite when the wind rips through the sail. It would make more sense for life to be on Saturn, where mothers are the rings embracing the atmosphere.
+
+For a while I struggled with understanding how women come to the decision to become mothers. I don't know the answer in totality, but after some thinking, I think my answer comes in some form of understanding that motherhood is the root of all life. Mothers are beings, but also the force that nurtures life into existence and sustains such life long after birth. Regardless of our emotional relationships, our circumstances, or physical distance, we all have a mother. It is the one truth that connects every living thing on this earth. Mothers are the single thread woven through all of existence without exception. It's one of the few ways humans can tangibly cite one of their contributions in life.
+
+We name the most beautiful and the most destructive forces in the world after a mother in Mother Nature. The earth feeds us, the sun warms us, the rain restores us, all without a record of what humankind owes back. I really believe this mocks the spirit of motherhood: to give and expect nothing in return. To love someone more than you love yourself. To offer everything you have to another.
+
+Love from a mother does not have to come from a mother in blood. I've been embraced, lectured, and advised by women who are not my mother, and even by women who do not have children of their own.
+
+But if you're lucky enough to be my mother, motherhood is, on a more micro scale:
+
+- Carrying me from the bed to the bathroom every day before school for all of elementary school, even when I got too heavy to lift with ease
+- Sitting at the piano bench every day while I practiced (poorly) at my request
+- Selling Girl Scout cookies to coworkers to hit the troop target
+- Couture 101
+- Being a professional chauffeur to tennis, piano lessons, dance, soccer, swimming: the list goes on…
+- Asking if anyone noticed my haircut / new clothes / missing tooth / any minute change, really
+- Driving to Laguna Beach and back every day for work before I could drive myself
+- Late night KFC runs for a side of mashed potatoes and nothing else
+- Staying up late watching Survivor and The Amazing Race, judging the contestants even though we both know we could not do any better
+- Being the Lorelai to my Rory
+- Figuring out how to do all of the different braids a girl can have, at my request
+- Holding a spot in line for the Brandy Melville dressing room
+- Planning the annual mother-daughter long haul vacation, where we stand at a historical site for maybe 20 minutes tops before looking for the nearest shopping
+- Making sure the love for a coffee and a croissant gets passed down the bloodline
+
+Everything I learned about being a woman I've learned from a mother. Most of the things I've learned have come from my own mother. Cheers to that!`,
+  },
+  {
     slug: "the-mind-body-connection",
     title: "The Mind-Body Connection",
     description: "And the story of how I brushed shoulders with death during my teenage years.",
