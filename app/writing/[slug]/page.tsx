@@ -118,6 +118,19 @@ export default async function ArticlePage({ params }: Props) {
               </p>
             );
           }
+          // Detect bullet list blocks (lines starting with "- ")
+          const lines = para.split("\n");
+          if (lines.every((l) => l.trim().startsWith("- "))) {
+            return (
+              <div key={i} className="space-y-1">
+                {lines.map((line, j) => (
+                  <p key={j} className="text-base text-neutral-700 dark:text-neutral-300 leading-loose">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            );
+          }
           return (
             <p key={i} className="text-base text-neutral-700 dark:text-neutral-300 leading-loose">
               {para}
